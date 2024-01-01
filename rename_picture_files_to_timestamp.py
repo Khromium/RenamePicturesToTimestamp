@@ -64,12 +64,9 @@ def main():
 
         # new file name will be {timestamp}_{original file name without suffix}.{suffix}
         # example: 7M400001.ARW -> 2023-02-23_12-53-12_7M400001.ARW
+        exif_time = timestamp.replace(':', '').replace(' ', '_')
         new_picture_file_name = (
-            timestamp.replace(":", "-").replace(" ", "_")
-            + "_"
-            + picture_file_name_body
-            + "."
-            + suffix
+            f"IMG_{exif_time}_{picture_file_name_body}.{suffix}"
         )
 
         print(
